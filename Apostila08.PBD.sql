@@ -34,3 +34,19 @@ BEGIN
 	RAISE NOTICE 'o numero gerado foi: % %',   numero , 'ºC';
 	RAISE NOTICE 'A conversão desse valor para Fahrenheit é: %', F;
 END $$
+
+
+-- 1.4 Faça um programa que fere três valores reais a,b e c e mostre o valor de delta
+DO $$
+DECLARE
+	A NUMERIC (6,2);
+	B NUMERIC (6,2);
+	C NUMERIC (6,2);
+	delta NUMERIC (6,2);
+BEGIN
+	a := random()*10;
+	b := random()*10;
+	c := random()*10;
+	delta := b^2 - 4*a*c;
+	RAISE NOTICE 'O valor de delta calculado a partir de a,b e c é: %', delta;
+END $$
