@@ -50,3 +50,23 @@ BEGIN
 	delta := b^2 - 4*a*c;
 	RAISE NOTICE 'O valor de delta calculado a partir de a,b e c é: %', delta;
 END $$
+
+-- 1.5 Faça um programa que gere um número inteiro e mostre a raiz cúbica de seu antecessor e a raiz quadrada de seu sucessor
+DO $$
+DECLARE
+	n1 INTEGER;
+	raiz_cubica INTEGER;
+	raiz_quadrada INTEGER;
+	
+	nc INTEGER;
+	nq INTEGER;
+BEGIN
+	n1 := random()*10;
+	nc := n1 - 1;
+	nq := n1 + 1;
+	raiz_cubica := ||/nc;
+	raiz_quadrada := |/nq;
+	RAISE NOTICE 'O número gerado foi: %', n1;
+	RAISE NOTICE 'A raiz cúbica do seu antecessor é: %', raiz_cubica;
+	RAISE NOTICE 'A raiz quadrada do seu sucessor é: %', raiz_quadrada;
+END $$
