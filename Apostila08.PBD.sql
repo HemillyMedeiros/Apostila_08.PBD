@@ -95,3 +95,26 @@ BEGIN
 	RAISE NOTICE 'O preço por metro quadrado é: %', preco;
 	RAISE NOTICE 'O valor total do terreno é: %', valor_total;
 END $$
+
+
+-- 1.7 escreva um programa que gere um inteiro que represnta o ano de nascimento de uma pessoa no intervalo[1980,2000] e gere um inteiro que representa o ano atual no intervalo[2010,2020]. o programa  deve exibir a idadde da ppessoa em anos. desconsidere detalhes envolvendo dias , anos, meses , anos bissextos.
+DO
+$$
+DECLARE
+    ano_nscto INTEGER;
+    ano_atual INTEGER;
+    idade INTEGER;
+    li INTEGER:= 1980;
+    ls INTEGER:= 2000;
+    liaa INTEGER:= 2010;
+    lsaa INTEGER:= 2020;
+    
+BEGIN
+     ano_nscto := FLOOR (li + random() *(ls - li + 1))::INT;
+     ano_atual := FLOOR (liaa + random() *(lsaa - liaa + 1))::INT;
+     idade := ano_atual - ano_nscto;
+     RAISE NOTICE 'o ano de nascimento é: %',ano_nscto;
+     RAISE NOTICE 'o ano atual é: %',ano_atual;
+     RAISE NOTICE 'o idade do individuo é: % anos',idade;
+END
+$$
