@@ -70,3 +70,28 @@ BEGIN
 	RAISE NOTICE 'A raiz cúbica do seu antecessor é: %', raiz_cubica;
 	RAISE NOTICE 'A raiz quadrada do seu sucessor é: %', raiz_quadrada;
 END $$
+
+
+
+-- 1.6 Faça um programa que gere medidas reais de um terreno retangular. Gere também um valor real no intervalo [60, 70] que representa o preço por metro quadrado. O programa deveexibir o valor total do terreno.
+DO $$
+DECLARE
+	comprimento NUMERIC (4,2);
+	largura NUMERIC (4,2);
+	area NUMERIC (4,2);
+	preco NUMERIC (4,2);
+	valor_total NUMERIC (4,2);
+	limite_inferior NUMERIC  := 60;
+	limite_superior NUMERIC  := 70;
+BEGIN
+	comprimento := random();
+	largura := random();
+	area := comprimento*largura;
+	preco := floor(limite_inferior + random() * (limite_superior - limite_inferior +1)) :: NUMERIC;
+	valor_total := area*preco;
+	RAISE NOTICE 'As medidas do comprimento: %', comprimento;
+	RAISE NOTICE 'E as medidas da largura:%', largura;
+	RAISE NOTICE 'O valor da sua área é: %', area;
+	RAISE NOTICE 'O preço por metro quadrado é: %', preco;
+	RAISE NOTICE 'O valor total do terreno é: %', valor_total;
+END $$
